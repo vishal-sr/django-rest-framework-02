@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 
 
-class Languages(models.Model):
+class Language(models.Model):
     languages = models.CharField(max_length=15)
 
     def __str__(self):
@@ -12,7 +12,7 @@ class Languages(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=25)
-    language = models.ManyToManyField(Languages,  related_name="Languages")
+    language = models.ManyToManyField(Language,  related_name="Languages")
 
     def __str__(self):
         return f"{self.name}"
